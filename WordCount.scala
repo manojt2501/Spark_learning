@@ -1,6 +1,6 @@
-import org.apache.spark.SparkContext
 import org.apache.log4j.Level
 import org.apache.log4j.Logger
+import org.apache.spark.SparkContext
 
 object WordCount extends App{
    Logger.getLogger("org").setLevel(Level.ERROR)
@@ -17,7 +17,9 @@ object WordCount extends App{
    
    val wordCount = wordMap.reduceByKey((x,y) => x+y)
    
-   val finalCount = wordCount.map( x=> (x._2,x._1)).sortByKey(false).map( x=> (x._2,x._1)) 
+   val finalCount = wordCount.sortBy(x => -x._2)
+   
+//   val finalCount = wordCount.map( x=> (x._2,x._1)).sortByKey(false).map( x=> (x._2,x._1)) 
    
 //   finalCount.collect.foreach(println)
    val results = finalCount.collect
