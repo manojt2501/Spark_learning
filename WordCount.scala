@@ -8,7 +8,7 @@ object WordCount extends App{
    
    val sc= new SparkContext("local[*]","wordcount")
    
-   val input = sc.textFile("C:/Users/manoj/OneDrive/Desktop/spark.txt")
+   val input = sc.textFile("D:/Gofrugal/sparkpractice/src/spark.txt")
    
    val words = input.flatMap(_.split(" "))
    
