@@ -27,7 +27,7 @@ object Spark_strAPI extends App{
       StructField("order_status",StringType)))      //explicit Schema programatic approach // true or false for nullable or not
       
       
-   val orderSchema =   "order_id Int, order_date Timestamp, order_customer_id Int, order_status String"
+   val orderSchema =   "order_id Int, order_date Timestamp, order_customer_id Int, order_status Int"
   
   
   val orderDF = spark.read
